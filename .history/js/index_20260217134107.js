@@ -9,12 +9,7 @@ const loadCategories = async () => {
 };
 
 const displayCategories = (categories) => { 
-    const productsGrid = document.getElementById('products-grid');
-    const categoryButtons = document.getElementById('category-buttons');
-    categoryButtons.innerHTML = `<button data-cat="all" class="cat-btn active px-5 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700" onclick="filterByCategory('all')">All</button>`;
-    categories.forEach(cat => {
-        categoryButtons.innerHTML += `<button data-cat="${cat}" class="cat-btn px-5 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 capitalize" onclick="filterByCategory('${cat}')">${cat}</button>`;
-    });
+    gey
 };
 
 loadCategories();
