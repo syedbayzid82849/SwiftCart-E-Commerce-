@@ -14,17 +14,12 @@ const loadProducts = async () => {
     try {
         const res = await fetch('https://fakestoreapi.com/products');
         const data = await res.json();
+        const click
         displayProductsByCategory(data);
     } catch (e) {
         console.error('Failed to load products');
     }
 };
-
-//remove active class from all category buttons
-const removeActiveClass = () => {
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-}
 
 //filter products by category
 const filterByCategory = (cat) => {
@@ -35,13 +30,10 @@ const filterByCategory = (cat) => {
         loadProducts();
         return;
     }
-    
+
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            removeActiveClass();
-            const clickedBtn = document.getElementById(`cat-${cat}`);
-            clickedBtn.classList.add('active');
             displayProductsByCategory(data);
         })
         .catch(e => {
@@ -60,7 +52,7 @@ const displayCategories = (categories) => {
     const categoryButtons = document.getElementById('category-buttons');
     categoryButtons.innerHTML = `<button data-cat="all" class="cat-btn active px-5 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700" onclick="filterByCategory('all')">All</button>`;
     categories.forEach(cat => {
-        categoryButtons.innerHTML += `<button data-cat="${cat}" class="cat-btn px-5 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 capitalize" id="cat-${cat}" onclick="filterByCategory('${cat}')">${cat}</button>`;
+        categoryButtons.innerHTML += `<button data-cat="${cat}" class="cat-btn px-5 py-2 rounded-full text-sm font-semibold border border-gray-200 bg-white text-gray-700 capitalize" id="cat-btn-${cat}" onclick="filterByCategory('${cat}')">${cat}</button>`;
     });
 };
 

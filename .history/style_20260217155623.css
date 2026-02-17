@@ -6,11 +6,7 @@ html {
     scroll-behavior: smooth;
 }
 
-.active {
-    background: linear-gradient(90deg, #6351ff, #8b5cf6);
-    color: #fff !important;
-    border-color: transparent !important;
-}
+.active)
 
 #navbar.scrolled {
     background: #fff !important;

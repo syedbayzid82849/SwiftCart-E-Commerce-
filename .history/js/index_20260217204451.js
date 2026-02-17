@@ -20,7 +20,7 @@ const loadProducts = async () => {
     }
 };
 
-//remove active class from all category buttons
+//
 const removeActiveClass = () => {
     const buttons = document.querySelectorAll('.cat-btn');
     buttons.forEach(btn => btn.classList.remove('active'));

@@ -20,12 +20,6 @@ const loadProducts = async () => {
     }
 };
 
-//remove active class from all category buttons
-const removeActiveClass = () => {
-    const buttons = document.querySelectorAll('.cat-btn');
-    buttons.forEach(btn => btn.classList.remove('active'));
-}
-
 //filter products by category
 const filterByCategory = (cat) => {
     const productsGrid = document.getElementById('products-grid');
@@ -35,13 +29,9 @@ const filterByCategory = (cat) => {
         loadProducts();
         return;
     }
-    
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            removeActiveClass();
-            const clickedBtn = document.getElementById(`cat-${cat}`);
-            clickedBtn.classList.add('active');
             displayProductsByCategory(data);
         })
         .catch(e => {
