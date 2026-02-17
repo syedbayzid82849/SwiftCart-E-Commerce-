@@ -35,7 +35,7 @@ const filterByCategory = (cat) => {
         })
         .catch(e => {
             console.error('Failed to load products for category: ' + cat);
-        });j
+        });
 };
 
 const displayCategories = (categories) => {

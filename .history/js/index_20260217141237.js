@@ -1,43 +1,15 @@
-//loa categories  
+// ===== LOAD CATEGORIES =====
 const loadCategories = async () => {
     try {
         const res = await fetch('https://fakestoreapi.com/products/categories');
         const data = await res.json();
         displayCategories(data);
     } catch (e) {
-        console.error('Failed to load categories');
-    }
-};
-
-//load products
-const loadProducts = async () => {
-    try {
-        const res = await fetch('https://fakestoreapi.com/products');
-        const data = await res.json();
-        console.log(data);
-    } catch (e) {
         console.error('Failed to load products');
     }
 };
 
-//filter products by category
-const filterByCategory = (cat) => {
-    console.log(cat);
-    const url = `https://fakestoreapi.com/products/category/${cat}`;
-    if (cat === 'all') {
-        loadProducts();
-        return;
-    }
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(e => {
-            console.error('Failed to load products for category: ' + cat);
-        });j
-};
-
+// ===== DISPLAY CATEGORIES =====
 const displayCategories = (categories) => {
     const productsGrid = document.getElementById('products-grid');
     const categoryButtons = document.getElementById('category-buttons');
@@ -47,8 +19,22 @@ const displayCategories = (categories) => {
     });
 };
 
-loadCategories();
-
+// ===== LOAD ALL PRODUCTS =====
+const loadProducts = async () => {
+    try {
+        const res = await fetch('https://fakestoreapi.com/prducts');
+        const data = await res.json();
+        displayProducts(data);
+    } catch (e) {
+        const productsLoading = document.getElementById('products-loading');
+        productsLoading.innerHTML = `
+      <div class="col-span-4 flex flex-col items-center justify-center py-20 text-center">
+        <svg class="w-16 h-16 text-red-200 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z "/></svg>
+        <p class="text-red-400 font-medium">Failed to load products</p>
+        <button onclick="loadProducts()" class="mt-3 btn-primary text-white text-sm font-semibold px-5 py-2 rounded-xl">Retry</button>
+      </div>`;
+    }
+};
 
 // const API = 'https://fakestoreapi.com';
 // let allProducts = [];

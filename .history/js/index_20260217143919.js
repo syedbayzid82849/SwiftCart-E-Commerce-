@@ -9,7 +9,6 @@ const loadCategories = async () => {
     }
 };
 
-//load products
 const loadProducts = async () => {
     try {
         const res = await fetch('https://fakestoreapi.com/products');
@@ -20,22 +19,14 @@ const loadProducts = async () => {
     }
 };
 
-//filter products by category
 const filterByCategory = (cat) => {
     console.log(cat);
     const url = `https://fakestoreapi.com/products/category/${cat}`;
-    if (cat === 'all') {
-        loadProducts();
-        return;
-    }
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(e => {
-            console.error('Failed to load products for category: ' + cat);
-        });j
+    console.log(url);
+    //   if (cat === 'all') {
+    //     loadProducts();
+    //     return;
+    //   }
 };
 
 const displayCategories = (categories) => {

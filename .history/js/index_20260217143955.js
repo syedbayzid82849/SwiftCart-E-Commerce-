@@ -29,13 +29,6 @@ const filterByCategory = (cat) => {
         return;
     }
     fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(e => {
-            console.error('Failed to load products for category: ' + cat);
-        });j
 };
 
 const displayCategories = (categories) => {

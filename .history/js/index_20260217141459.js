@@ -1,43 +1,15 @@
-//loa categories  
+// ===== LOAD CATEGORIES =====
 const loadCategories = async () => {
     try {
         const res = await fetch('https://fakestoreapi.com/products/categories');
         const data = await res.json();
         displayCategories(data);
     } catch (e) {
-        console.error('Failed to load categories');
-    }
-};
-
-//load products
-const loadProducts = async () => {
-    try {
-        const res = await fetch('https://fakestoreapi.com/products');
-        const data = await res.json();
-        console.log(data);
-    } catch (e) {
         console.error('Failed to load products');
     }
 };
 
-//filter products by category
-const filterByCategory = (cat) => {
-    console.log(cat);
-    const url = `https://fakestoreapi.com/products/category/${cat}`;
-    if (cat === 'all') {
-        loadProducts();
-        return;
-    }
-    fetch(url)
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(e => {
-            console.error('Failed to load products for category: ' + cat);
-        });j
-};
-
+// ===== DISPLAY CATEGORIES =====
 const displayCategories = (categories) => {
     const productsGrid = document.getElementById('products-grid');
     const categoryButtons = document.getElementById('category-buttons');
@@ -47,7 +19,7 @@ const displayCategories = (categories) => {
     });
 };
 
-loadCategories();
+// ===== LOAD ALL PRODUCTS =====
 
 
 // const API = 'https://fakestoreapi.com';
