@@ -48,9 +48,8 @@ const displayCategories = (categories) => {
     });
 };
 
-//display products by category
 const displayProductsByCategory = (products) => {
-    console.log(products);
+    console.log(products)
     const productsGrid = document.getElementById('products-grid');
     productsGrid.innerHTML = '';
     if (!products.length) {

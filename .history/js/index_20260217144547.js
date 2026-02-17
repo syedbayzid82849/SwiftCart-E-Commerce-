@@ -31,14 +31,14 @@ const filterByCategory = (cat) => {
     fetch(url)
         .then(res => res.json())
         .then(data => {
-            displayProductsByCategory(data);
+            console.log(data);
         })
         .catch(e => {
             console.error('Failed to load products for category: ' + cat);
-        });
+        });j
 };
 
-//display categories as buttons
+ //display categories as buttons
 const displayCategories = (categories) => {
     const productsGrid = document.getElementById('products-grid');
     const categoryButtons = document.getElementById('category-buttons');
@@ -48,33 +48,7 @@ const displayCategories = (categories) => {
     });
 };
 
-//display products by category
-const displayProductsByCategory = (products) => {
-    console.log(products);
-    const productsGrid = document.getElementById('products-grid');
-    productsGrid.innerHTML = '';
-    if (!products.length) {
-        productsGrid.innerHTML = `<div class="col-span-4 flex flex-col items-center justify-center py-20 text-center">
-        <svg class="w-16 h-16 text-red-200 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-        <p class="text-red-400 font-medium">No products found in this category</p>
-        <button onclick="filterByCategory('all')" class="mt-3 btn-primary text-white text-sm font-semibold px-5 py-2 rounded-xl">View All</button>
-      </div>`;
-        return;
-    }
-    products.forEach(product => {
-        productsGrid.innerHTML += `
-        <div class="product-card bg-white rounded-2xl overflow-hidden border border-gray-100 flex flex-col">
-            <div class="h-44 sm:h-48 flex items-center justify-center bg-gray-50 p-3 cursor-pointer">
-                <img src="${product.image}" alt="${product.title}" loading="lazy" class="max-h-full max-w-full object-contain transition duration-300 hover:scale-105"/>
-            </div>
-            <div class="p-4 flex flex-col flex-1">
-                <span class="text-xs font-semibold capitalize px-2 py-0.5 rounded-full inline-block self-start mb-2 truncate max-w-full" style="background:#ede9fe;color:#6351ff">${product.category}</span>
-                <h3 class="text-xs sm:text-sm font-semibold text-gray-800 flex-1 leading-snug mb-3">${product.title.substring(0, 55)}${product.title.length > 55 ? '...' : ''}</h3>
-                <p class="text-lg sm:text-xl font-extrabold mb-3" style="color:#6351ff">$${product.price}</p>
-            </div>
-        </div>`;
-    });
-}
+//
 
 
 
