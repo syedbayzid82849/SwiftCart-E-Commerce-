@@ -73,7 +73,7 @@ const displayProductsByCategory = (products) => {
         productsGrid.innerHTML = `<div class="col-span-4 flex flex-col items-center justify-center py-20 text-center">
         <svg class="w-16 h-16 text-red-200 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
         <p class="text-red-400 font-medium">No products found in this category</p>
-        <button onclick="filterByCategory('all')" class="mt-3 btn-primary text-white text-sm font-semibold px-5 py-2 rounded-xl">View All</button>
+        <button onclick="filterByCategory('all')" class="mt-3 btn-primary text-white text-sm font-semibold px-5 py-2 rounded-xl"> All</button>
       </div>`;
         return;
     }
@@ -86,10 +86,6 @@ const displayProductsByCategory = (products) => {
             <div class="p-4 flex flex-col flex-1">
                 <span class="text-xs font-semibold capitalize px-2 py-0.5 rounded-full inline-block self-start mb-2 truncate max-w-full" style="background:#ede9fe;color:#6351ff">${product.category}</span>
                 <h3 class="text-xs sm:text-sm font-semibold text-gray-800 flex-1 leading-snug mb-3">${product.title.substring(0, 55)}${product.title.length > 55 ? '...' : ''}</h3>
-                <p class="text-xs text-gray-500 mb-3">
-  ⭐ ${product.rating.rate} 
-  <span class="text-gray-400">(${product.rating.count} reviews)</span>
-</p>
                 <p class="text-lg sm:text-xl font-extrabold mb-3" style="color:#6351ff">$${product.price}</p>
                 <button onclick="showDetails(${product.id})" class="flex-1 btn-primary flex items-center justify-center gap-1 text-white text-xs font-bold py-2 rounded-xl">
                     <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
