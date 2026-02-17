@@ -88,7 +88,7 @@
         </div>
 
         <!-- PRODUCTS GRID -->
-
+  
 
         <div id="products-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5"></div>
 
@@ -181,25 +181,25 @@
         </div>
     </footer>
 
-    <!-- Product Details Modal -->
-    <div id="details-modal-overlay" class="details-overlay" onclick="if(event.target===this) closeDetailsModal()">
-        <div class="details-modal">
-            <button class="details-close-btn" onclick="closeDetailsModal()">&#x2715;</button>
-            <div class="details-modal-body">
-                <div class="details-modal-left">
-                    <img id="details-modal-img" src="" alt="" />
-                </div>
-                <div class="details-modal-right">
-                    <span id="details-modal-category" class="details-modal-cat"></span>
-                    <h2 id="details-modal-title"></h2>
-                    <p id="details-modal-rating"></p>
-                    <h3 id="details-modal-price"></h3>
-                    <p id="details-modal-desc"></p>
-                    <button class="cart-btn" style="width:100%;margin-top:1rem;">Add to Cart</button>
-                </div>
-            </div>
-        </div>
+<!-- Product Details Modal -->
+<div id="details-modal-overlay" class="details-overlay" onclick="if(event.target===this) closeDetailsModal()">
+  <div class="details-modal">
+    <button class="details-close-btn" onclick="closeDetailsModal()">&#x2715;</button>
+    <div class="details-modal-body">
+      <div class="details-modal-left">
+        <img id="details-modal-img" src="" alt="" />
+      </div>
+      <div class="details-modal-right">
+        <span id="details-modal-category" class="details-modal-cat"></span>
+        <h2 id="details-modal-title"></h2>
+        <p id="details-modal-rating"></p>
+        <h3 id="details-modal-price"></h3>
+        <p id="details-modal-desc"></p>
+        <button class="cart-btn" style="width:100%;margin-top:1rem;">Add to Cart</button>
+      </div>
     </div>
+  </div>
+</div>
 
     <!-- CART SIDEBAR -->
     <div id="cart-sidebar"
@@ -227,7 +227,7 @@
         <span id="toast-msg"></span>
     </div>
 
-    <script src="js/index.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>

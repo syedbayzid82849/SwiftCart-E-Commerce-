@@ -100,7 +100,6 @@ const displayProductsByCategory = (products) => {
     });
 }
 
-//show product details in modal
 const showDetails = async (id) => {
     try {
         const res = await fetch(`https://fakestoreapi.com/products/${id}`);

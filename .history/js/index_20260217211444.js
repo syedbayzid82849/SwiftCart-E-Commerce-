@@ -87,7 +87,7 @@ const displayProductsByCategory = (products) => {
                 <span class="text-xs font-semibold capitalize px-2 py-0.5 rounded-full inline-block self-start mb-2 truncate max-w-full" style="background:#ede9fe;color:#6351ff">${product.category}</span>
                 <h3 class="text-xs sm:text-sm font-semibold text-gray-800 flex-1 leading-snug mb-3">${product.title.substring(0, 55)}${product.title.length > 55 ? '...' : ''}</h3>
                 <p class="text-lg sm:text-xl font-extrabold mb-3" style="color:#6351ff">$${product.price}</p>
-                <button onclick="showDetails(${product.id})" class="flex-1 btn-primary flex items-center justify-center gap-1 text-white text-xs font-bold py-2 rounded-xl">
+                <button onclick="console.log(${JSON.stringify(product).replace(/\\/g, "\\\\").replace(/'/g, "\\'")})" class="flex-1 btn-primary flex items-center justify-center gap-1 text-white text-xs font-bold py-2 rounded-xl">
                     <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                     Details
                 </button>
@@ -100,7 +100,6 @@ const displayProductsByCategory = (products) => {
     });
 }
 
-//show product details in modal
 const showDetails = async (id) => {
     try {
         const res = await fetch(`https://fakestoreapi.com/products/${id}`);
